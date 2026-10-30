@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schoo-AI — Chatbot</title>
+  <meta name="description" content="Schoo-AI, asisten obrolan berbasis Gemini." />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <aside class="rail">
+      <div class="brand">
+        <span class="brand-mark">Schoo<span class="dot">-</span>AI</span>
+        <span class="brand-sub">Asisten obrolan serba bisa</span>
+      </div>
+
+      <div class="rail-body">
+        <p class="rail-note">
+          Tanyakan apa saja, dari hal serius sampai yang iseng.
+          Jawabannya mengalir langsung, seperti ngobrol biasa.
+        </p>
+        <button id="clear-chat" class="btn-new" type="button">+ Obrolan baru</button>
+      </div>
+
+      <div class="rail-foot">
+        <p class="status"><span class="live"></span>Online <span class="sep">/</span> <span id="clock">--:--</span> WIB</p>
+        <p class="credit">Didukung Gemini.<br />Jawaban bisa keliru, cek ulang info penting.</p>
+      </div>
+    </aside>
+
+    <section class="stage">
+      <canvas id="scene" class="scene" aria-hidden="true"></canvas>
+      <main id="chat-box" class="thread" aria-live="polite">
+
+        <div id="welcome-card" class="empty">
+          <p class="eyebrow">Sesi baru</p>
+          <h1>Mau tanya <em>apa</em> hari ini?</h1>
+          <p class="lede">
+            Tulis pertanyaan apa saja, atau pilih salah satu contoh di bawah
+            untuk memulai.
+          </p>
+
+          <ol class="prompts">
+            <li>
+              <button class="prompt" type="button" data-prompt="Jelaskan cara kerja AI dengan bahasa yang sederhana">
+                <span class="num">01</span>
+                <span class="txt">Jelaskan cara kerja AI dengan bahasa sederhana</span>
+                <span class="arr" aria-hidden="true">→</span>
+              </button>
+            </li>
+            <li>
+              <button class="prompt" type="button" data-prompt="Bantu aku bikin 5 caption Instagram yang catchy untuk foto liburan">
+                <span class="num">02</span>
+                <span class="txt">Bikinin caption Instagram yang catchy</span>
+                <span class="arr" aria-hidden="true">→</span>
+              </button>
+            </li>
+            <li>
+              <button class="prompt" type="button" data-prompt="Berikan rekomendasi ide kegiatan seru untuk akhir pekan">
+                <span class="num">03</span>
+                <span class="txt">Ide kegiatan seru untuk akhir pekan</span>
+                <span class="arr" aria-hidden="true">→</span>
+              </button>
+            </li>
+          </ol>
+        </div>
+
+      </main>
+
+      <form id="chat-form" class="composer" autocomplete="off">
+        <label for="user-input" class="sr-only">Pesan</label>
+        <input type="text" id="user-input" placeholder="Tulis pertanyaanmu di sini…" required />
+        <button type="submit" id="send-btn" class="send">Kirim <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script type="module" src="scene3d.js"></script>
+</body>
+</html>
